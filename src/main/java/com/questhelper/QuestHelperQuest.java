@@ -348,6 +348,8 @@ public enum QuestHelperQuest
 
 
 	// Generic
+	CHECK_ITEMS("Check all items", QuestVarbits.QUEST_THE_MAGE_ARENA_II, -1, Quest.Type.GENERIC,
+		Quest.Difficulty.GENERIC),
 	MA2_LOCATOR("Mage Arena II Locator", QuestVarbits.QUEST_THE_MAGE_ARENA_II, -1, Quest.Type.GENERIC,
 		Quest.Difficulty.GENERIC),
 
@@ -422,6 +424,18 @@ public enum QuestHelperQuest
 		this.questType = questType;
 		this.difficulty = difficulty;
 		this.completeValue = completeValue;
+	}
+
+	QuestHelperQuest(String name, Quest.Type questType, Quest.Difficulty difficulty)
+	{
+		this.id = -1;
+		this.name = name;
+		this.keywords = titleToKeywords(name);
+		this.varbit = null;
+		this.varPlayer = null;
+		this.questType = questType;
+		this.difficulty = difficulty;
+		this.completeValue = -1;
 	}
 
 	// Can be used for skill based helpers
