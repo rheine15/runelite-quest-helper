@@ -80,7 +80,8 @@ public class XMarksTheSpot extends BasicQuestHelper
 		return steps;
 	}
 
-	private void setupRequirements() {
+	@Override
+	public void setupRequirements() {
 		spade = new ItemRequirement("Spade", ItemID.SPADE);
 		glory = new ItemRequirement("Amulet of Glory for faster teleport to Draynor Village.", ItemCollections.getAmuletOfGlories());
 	}

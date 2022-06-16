@@ -73,7 +73,8 @@ public class EnchantedKey extends BasicQuestHelper
 		return steps;
 	}
 
-	private void setupRequirements()
+	@Override
+	public void setupRequirements()
 	{
 		spade = new ItemRequirement("Spade", ItemID.SPADE);
 		key = new ItemRequirement("Enchanted key", ItemID.ENCHANTED_KEY);

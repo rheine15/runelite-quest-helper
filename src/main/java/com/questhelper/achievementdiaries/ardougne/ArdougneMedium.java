@@ -128,6 +128,7 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 		return doMedium;
 	}
 
+	@Override
 	public void setupRequirements()
 	{
 		notUniPen = new VarplayerRequirement(1196, false, 13);

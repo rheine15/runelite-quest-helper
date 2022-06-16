@@ -42,7 +42,6 @@ import com.questhelper.requirements.WidgetTextRequirement;
 import com.questhelper.rewards.ExperienceReward;
 import com.questhelper.rewards.ItemReward;
 import com.questhelper.rewards.QuestPointReward;
-import com.questhelper.rewards.UnlockReward;
 import com.questhelper.steps.ConditionalStep;
 import com.questhelper.steps.DetailedQuestStep;
 import com.questhelper.steps.NpcStep;
@@ -81,7 +80,7 @@ public class TribalTotem extends BasicQuestHelper
     public Map<Integer, QuestStep> loadSteps()
     {
         loadZones();
-        setupItemRequirements();
+        setupRequirements();
         setupConditions();
         setupSteps();
 
@@ -105,7 +104,8 @@ public class TribalTotem extends BasicQuestHelper
                 .build();
     }
 
-    public void setupItemRequirements()
+ @Override
+ public void setupRequirements()
     {
         coins = new ItemRequirement("Coins or more for boat trips", ItemCollections.getCoins(), 90);
         amuletOfGlory = new ItemRequirement("Amulet of glory", ItemCollections.getAmuletOfGlories());

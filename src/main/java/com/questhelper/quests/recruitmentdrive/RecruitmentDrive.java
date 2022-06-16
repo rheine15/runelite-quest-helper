@@ -103,7 +103,7 @@ public class RecruitmentDrive extends BasicQuestHelper
 	@Override
 	public Map<Integer, QuestStep> loadSteps()
 	{
-		setupItemRequirements();
+		setupRequirements();
 		SetupZones();
 
 		return getSteps();
@@ -119,7 +119,8 @@ public class RecruitmentDrive extends BasicQuestHelper
 		return steps;
 	}
 
-	public void setupItemRequirements()
+	@Override
+	public void setupRequirements()
 	{
 		coinsRequirement = new ItemRequirement("Coins(If you are male)", ItemCollections.getCoins(), 3000);
 		noItemRequirement = new NoItemRequirement("No items or equipment carried", ItemSlots.ANY_EQUIPPED_AND_INVENTORY);

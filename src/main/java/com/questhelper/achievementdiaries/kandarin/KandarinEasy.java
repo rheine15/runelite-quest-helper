@@ -106,7 +106,8 @@ public class KandarinEasy extends ComplexStateQuestHelper
         return doEasy;
     }
 
-    public void setupRequirements()
+ @Override
+ public void setupRequirements()
     {
         notCatchMackerel = new VarplayerRequirement(1178, false, 1);
         notBuyCandle = new VarplayerRequirement(1178, false, 2);

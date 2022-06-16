@@ -103,6 +103,7 @@ public class RFDFinal extends BasicQuestHelper
 		return steps;
 	}
 
+	@Override
 	public void setupRequirements()
 	{
 		iceGloves = new ItemRequirement("Ice gloves", ItemID.ICE_GLOVES);

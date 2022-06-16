@@ -119,6 +119,7 @@ public class DesertMedium extends ComplexStateQuestHelper
 		return doMedium;
 	}
 
+	@Override
 	public void setupRequirements()
 	{
 		notAgiPyramid = new VarplayerRequirement(1198, false, 12);

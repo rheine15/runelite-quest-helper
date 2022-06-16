@@ -104,6 +104,7 @@ public class KaramjaEasy extends ComplexStateQuestHelper
 		return doEasy;
 	}
 
+	@Override
 	public void setupRequirements()
 	{
 		seaweed = new ItemRequirement("Seaweed", ItemID.SEAWEED);

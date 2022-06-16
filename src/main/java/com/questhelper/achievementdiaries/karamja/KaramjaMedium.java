@@ -132,6 +132,7 @@ public class KaramjaMedium extends BasicQuestHelper
 		return steps;
 	}
 
+	@Override
 	public void setupRequirements()
 	{
 		notClaimedTicket = new VarbitRequirement(3579, 0);

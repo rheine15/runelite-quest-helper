@@ -137,6 +137,7 @@ public class KaramjaHard extends ComplexStateQuestHelper
 		return doHard;
 	}
 
+	@Override
 	public void setupRequirements()
 	{
 		notBecomeChampion = new VarbitRequirement(3600, 0);

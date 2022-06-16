@@ -87,6 +87,9 @@ public class ItemRequirement extends AbstractRequirement
 	@Setter
 	private QuestBank questBank;
 
+	@Getter
+	protected boolean hadItemLastCheck;
+
 	public ItemRequirement(String name, int id)
 	{
 		this(name, id, 1);
@@ -198,6 +201,7 @@ public class ItemRequirement extends AbstractRequirement
 		newItem.setDisplayMatchedItemName(displayMatchedItemName);
 		newItem.setConditionToHide(conditionToHide);
 		newItem.questBank = questBank;
+		newItem.hadItemLastCheck = hadItemLastCheck;
 		newItem.setTooltip(getTooltip());
 
 		return newItem;
@@ -416,9 +420,11 @@ public class ItemRequirement extends AbstractRequirement
 				allItems));
 			if (remainder <= 0)
 			{
+				hadItemLastCheck = true;
 				return true;
 			}
 		}
+		hadItemLastCheck = false;
 		return false;
 	}
 

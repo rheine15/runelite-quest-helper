@@ -91,7 +91,7 @@ public class HauntedMine extends BasicQuestHelper
 	public Map<Integer, QuestStep> loadSteps()
 	{
 		loadZones();
-		setupItemRequirements();
+		setupRequirements();
 		setupConditions();
 		setupSteps();
 		Map<Integer, QuestStep> steps = new HashMap<>();
@@ -164,7 +164,8 @@ public class HauntedMine extends BasicQuestHelper
 		return steps;
 	}
 
-	public void setupItemRequirements()
+	@Override
+	public void setupRequirements()
 	{
 		zealotsKey = new ItemRequirement("Zealot's key", ItemID.ZEALOTS_KEY);
 

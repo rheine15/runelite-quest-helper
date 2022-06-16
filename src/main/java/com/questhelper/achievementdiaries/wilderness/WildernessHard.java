@@ -118,6 +118,7 @@ public class WildernessHard extends ComplexStateQuestHelper
 		return doHard;
 	}
 
+	@Override
 	public void setupRequirements()
 	{
 		notGodSpells = new VarplayerRequirement(1192, false, 25);
