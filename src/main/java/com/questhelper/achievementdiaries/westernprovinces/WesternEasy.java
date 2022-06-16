@@ -129,20 +129,20 @@ public class WesternEasy extends ComplexStateQuestHelper
 
 		//todo find way to track chompy kills
 
-		birdSnare = new ItemRequirement("Bird snare", ItemID.BIRD_SNARE).showConditioned(notCopperLongtail);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(notMineIron);
+		birdSnare = new ItemRequirement("Bird snare", ItemID.BIRD_SNARE).showConditioned(notCopperLongtail).isNotConsumed();
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(notMineIron).isNotConsumed();
 		oakShortU = new ItemRequirement("Oak shortbow (u)", ItemID.OAK_SHORTBOW_U).showConditioned(notOakShortbow);
 		bowString = new ItemRequirement("Bow string", ItemID.BOW_STRING).showConditioned(notOakShortbow);
-		ogreBellows = new ItemRequirement("Ogre bellows", ItemCollections.getOgreBellows()).showConditioned(notChompyHat);
-		ogreBow = new ItemRequirement("Ogre bow", ItemCollections.getOgreBow()).showConditioned(notChompyHat);
+		ogreBellows = new ItemRequirement("Ogre bellows", ItemCollections.getOgreBellows()).showConditioned(notChompyHat).isNotConsumed();
+		ogreBow = new ItemRequirement("Ogre bow", ItemCollections.getOgreBow()).showConditioned(notChompyHat).isNotConsumed();
 		ogreArrows = new ItemRequirement("Ogre / brutal arrows", ItemCollections.getOgreBrutalArrows()).showConditioned(notChompyHat);
 		swampToad = new ItemRequirement("Swamp toad", ItemID.SWAMP_TOAD);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);
-		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.getFairyStaff());
+		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.getFairyStaff()).isNotConsumed();
 
 		inBrimstailCave = new ZoneRequirement(brimstailCave);
 		inPest = new ZoneRequirement(pest);

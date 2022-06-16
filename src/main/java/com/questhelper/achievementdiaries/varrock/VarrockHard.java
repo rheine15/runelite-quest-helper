@@ -177,19 +177,19 @@ public class VarrockHard extends ComplexStateQuestHelper
 		combinedSkullSceptre = new ItemRequirement("Skull sceptre", ItemID.SKULL_SCEPTRE).showConditioned(notSkullSceptre);
 		dashingKeb = new ItemRequirement("Dashing kebbit fur", ItemID.DASHING_KEBBIT_FUR).showConditioned(notSpottyCape);
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins()).showConditioned(new Conditions(LogicType.OR, notSpottyCape, notFancyStone));
-		cape = new ItemRequirement("Spottier cape", ItemID.SPOTTIER_CAPE).showConditioned(notSpottyCape);
+		cape = new ItemRequirement("Spottier cape", ItemID.SPOTTIER_CAPE).showConditioned(notSpottyCape).isNotConsumed();
 		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(new Conditions(LogicType.OR,
-			notWakkaEdge, notYewChurch, notYewRoots));
+			notWakkaEdge, notYewChurch, notYewRoots)).isNotConsumed();
 		lawRune = new ItemRequirement("Law rune", ItemID.LAW_RUNE).showConditioned(notPaddewwaTP);
 		airRune = new ItemRequirement("Air rune", ItemID.AIR_RUNE).showConditioned(notPaddewwaTP);
 		fireRune = new ItemRequirement("Fire rune", ItemID.FIRE_RUNE).showConditioned(notPaddewwaTP);
 		yewLog = new ItemRequirement("Yew log", ItemID.YEW_LOGS);
-		tinderBox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notYewChurch);
+		tinderBox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notYewChurch).isNotConsumed();
 		yewSap = new ItemRequirement("Yew sapling", ItemID.YEW_SAPLING).showConditioned(notYewRoots);
-		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notYewRoots);
-		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notYewRoots);
+		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notYewRoots).isNotConsumed();
+		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notYewRoots).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);

@@ -143,20 +143,20 @@ public class RFDSkrachUglogwee extends BasicQuestHelper
 		cookedJubbly = new ItemRequirement("Cooked jubbly", ItemID.COOKED_JUBBLY);
 		cookedJubblyHighlighted = new ItemRequirement("Cooked jubbly", ItemID.COOKED_JUBBLY);
 		cookedJubblyHighlighted.setHighlightInInventory(true);
-		axeHighlighted = new ItemRequirement("Any axe", ItemCollections.getAxes());
+		axeHighlighted = new ItemRequirement("Any axe", ItemCollections.getAxes()).isNotConsumed();
 		axeHighlighted.setHighlightInInventory(true);
-		ironSpit = new ItemRequirement("Iron spit", ItemID.IRON_SPIT);
+		ironSpit = new ItemRequirement("Iron spit", ItemID.IRON_SPIT).isNotConsumed();
 		ironSpit.setHighlightInInventory(true);
 		log = new ItemRequirement("Any log to burn", ItemCollections.getLogsForFire());
-		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes());
-		ogreBellows = new ItemRequirement("Ogre bellows", ItemID.OGRE_BELLOWS);
+		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).isNotConsumed();
+		ogreBellows = new ItemRequirement("Ogre bellows", ItemID.OGRE_BELLOWS).isNotConsumed();
 		ogreBellows.addAlternates(ItemID.OGRE_BELLOWS_1, ItemID.OGRE_BELLOWS_2, ItemID.OGRE_BELLOWS_3);
-		ogreBellowsFilled = new ItemRequirement("Ogre bellows", ItemID.OGRE_BELLOWS_1);
+		ogreBellowsFilled = new ItemRequirement("Ogre bellows", ItemID.OGRE_BELLOWS_1).isNotConsumed();
 		ogreBellowsFilled.addAlternates(ItemID.OGRE_BELLOWS_2, ItemID.OGRE_BELLOWS_3);
 		ogreBellowsFilled.setHighlightInInventory(true);
 		ballOfWool = new ItemRequirement("Balls of wool", ItemID.BALL_OF_WOOL);
-		ogreBow = new ItemRequirement("Ogre bow", ItemID.OGRE_BOW);
+		ogreBow = new ItemRequirement("Ogre bow", ItemID.OGRE_BOW).isNotConsumed();
 		ogreBow.addAlternates(ItemID.COMP_OGRE_BOW);
 		ogreArrows = new ItemRequirement("Ogre arrow", ItemID.OGRE_ARROW);
 		ogreArrows.addAlternates(ItemID.BRONZE_BRUTAL, ItemID.IRON_BRUTAL, ItemID.STEEL_BRUTAL, ItemID.BLACK_BRUTAL,

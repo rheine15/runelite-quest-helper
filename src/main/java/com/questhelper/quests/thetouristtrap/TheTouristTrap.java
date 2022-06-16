@@ -196,7 +196,7 @@ public class TheTouristTrap extends BasicQuestHelper
 	@Override
 	public void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		desertTop = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT);
 		desertBottom = new ItemRequirement("Desert robe", ItemID.DESERT_ROBE);
@@ -205,7 +205,7 @@ public class TheTouristTrap extends BasicQuestHelper
 		desertBottomWorn = new ItemRequirement("Desert robe", ItemID.DESERT_ROBE, 1, true);
 		desertBootWorn = new ItemRequirement("Desert boots", ItemID.DESERT_BOOTS, 1, true);
 		bronzeBar3 = new ItemRequirement("Bronze bars", ItemID.BRONZE_BAR, 3);
-		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer());
+		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer()).isNotConsumed();
 		feather50 = new ItemRequirement("Feather", ItemID.FEATHER, 50);
 
 		metalKey = new ItemRequirement("Metal key", ItemID.METAL_KEY);
@@ -247,8 +247,8 @@ public class TheTouristTrap extends BasicQuestHelper
 		anaInABarrelHighlighted.setHighlightInInventory(true);
 
 		waterskins = new ItemRequirement("Waterskins", ItemID.WATERSKIN4, -1);
-		knife = new ItemRequirement("Knife", ItemID.KNIFE);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes());
+		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).isNotConsumed();
 		coins100 = new ItemRequirement("Coins", ItemCollections.getCoins(), 100);
 	}
 

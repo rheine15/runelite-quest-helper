@@ -135,12 +135,12 @@ public class TrollStronghold extends BasicQuestHelper
 	@Override
 	public void setupRequirements()
 	{
-		climbingBoots = new ItemRequirement("Climbing boots", ItemID.CLIMBING_BOOTS);
-		climbingBootsEquipped = new ItemRequirement("Climbing boots", ItemID.CLIMBING_BOOTS, 1, true);
+		climbingBoots = new ItemRequirement("Climbing boots", ItemID.CLIMBING_BOOTS).isNotConsumed();
+		climbingBootsEquipped = climbingBoots.equipped();
 		coins12 = new ItemRequirement("Coins", ItemCollections.getCoins(), 12);
-		climbingBootsOr12Coins = new ItemRequirements(LogicType.OR, "Climbing boots or 12 coins", climbingBoots, coins12);
+		climbingBootsOr12Coins = new ItemRequirements(LogicType.OR, "Climbing boots or 12 coins", climbingBoots, coins12).isNotConsumed();
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.getGamesNecklaces());
-		mageRangedGear = new ItemRequirement("Mage or ranged gear for safe spotting", -1, -1);
+		mageRangedGear = new ItemRequirement("Mage or ranged gear for safe spotting", -1, -1).isNotConsumed();
 		mageRangedGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 		foodAndPotions = new ItemRequirement("Food + prayer potions", ItemCollections.getGoodEatingFood(), -1);
 		prisonKey = new ItemRequirement("Prison key", ItemID.PRISON_KEY);

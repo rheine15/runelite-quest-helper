@@ -76,8 +76,8 @@ public class EnchantedKey extends BasicQuestHelper
 	@Override
 	public void setupRequirements()
 	{
-		spade = new ItemRequirement("Spade", ItemID.SPADE);
-		key = new ItemRequirement("Enchanted key", ItemID.ENCHANTED_KEY);
+		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
+		key = new ItemRequirement("Enchanted key", ItemID.ENCHANTED_KEY).isNotConsumed();
 		varrockTeleports = new ItemRequirement("Varrock teleports", ItemID.VARROCK_TELEPORT);
 		ardougneTeleports = new ItemRequirement("Ardougne teleports", ItemID.ARDOUGNE_TELEPORT);
 		rellekkaTeleports = new ItemRequirement("Rellekka teleport", ItemID.RELLEKKA_TELEPORT);

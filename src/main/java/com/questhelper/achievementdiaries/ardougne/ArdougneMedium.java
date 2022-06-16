@@ -148,30 +148,30 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 		notCWBallon2 = new VarbitRequirement(2869, 0);
 		normalBook = new SpellbookRequirement(Spellbook.NORMAL);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.getFairyStaff())
-			.showConditioned(new Conditions(LogicType.OR, notNecroTower, notUniPen));
+			.showConditioned(new Conditions(LogicType.OR, notNecroTower, notUniPen)).isNotConsumed();
 		skavMap = new ItemRequirement("Skavid map", ItemID.SKAVID_MAP).showConditioned(notCaveNightshade);
 		lightSource = new ItemRequirement("Any light source", ItemCollections.getLightSources())
-			.showConditioned(notCaveNightshade);
+			.showConditioned(notCaveNightshade).isNotConsumed();
 		nightshade = new ItemRequirement("Cave nightshade", ItemID.CAVE_NIGHTSHADE);
-		mithGrap = new ItemRequirement("Mith grapple", ItemID.MITH_GRAPPLE_9419).showConditioned(notGrapYan);
-		crossbow = new ItemRequirement("Any crossbow", ItemCollections.getCrossbows()).showConditioned(notGrapYan);
+		mithGrap = new ItemRequirement("Mith grapple", ItemID.MITH_GRAPPLE_9419).showConditioned(notGrapYan).isNotConsumed();
+		crossbow = new ItemRequirement("Any crossbow", ItemCollections.getCrossbows()).showConditioned(notGrapYan).isNotConsumed();
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET)
-			.showConditioned(new Conditions(notClaimSand));
+			.showConditioned(new Conditions(notClaimSand)).isNotConsumed();
 		lawRune = new ItemRequirement("Law rune", ItemID.LAW_RUNE).showConditioned(notTPArdy);
 		waterRune = new ItemRequirement("Water rune", ItemID.WATER_RUNE).showConditioned(notTPArdy);
 		rawChick = new ItemRequirement("Raw chicken", ItemID.RAW_CHICKEN).showConditioned(notKillSwordchick);
 		rawSword = new ItemRequirement("Raw swordfish", ItemID.RAW_SWORDFISH).showConditioned(notKillSwordchick);
-		ibanStaff = new ItemRequirement("Iban staff", ItemID.IBANS_STAFF).showConditioned(notIbanUpgrade);
+		ibanStaff = new ItemRequirement("Iban staff", ItemID.IBANS_STAFF).showConditioned(notIbanUpgrade).isNotConsumed();
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins()).showConditioned(notIbanUpgrade);
 		ibanStaffU = new ItemRequirement("Iban staff Upgraded", ItemID.IBANS_STAFF_U).showConditioned(notIbanUpgrade);
-		seedDib = new ItemRequirement("Seed dibber", ItemID.SEED_DIBBER).showConditioned(notArdyStraw);
+		seedDib = new ItemRequirement("Seed dibber", ItemID.SEED_DIBBER).showConditioned(notArdyStraw).isNotConsumed();
 		strawSeeds = new ItemRequirement("Strawberry seeds", ItemID.STRAWBERRY_SEED).showConditioned(notArdyStraw);
-		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notArdyStraw);
+		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notArdyStraw).isNotConsumed();
 		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.SMALL_FISHING_NET)
-			.showConditioned(notFishOnPlatform);
+			.showConditioned(notFishOnPlatform).isNotConsumed();
 		yewLog1 = new ItemRequirement("Yew logs", ItemID.YEW_LOGS, 1).showConditioned(new Conditions(notBalloonCW,
 			notCWBallon));
 		yewLog11 = new ItemRequirement("Yew logs", ItemID.YEW_LOGS, 11).showConditioned(new Conditions(notBalloonCW,
@@ -179,7 +179,7 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 		basket = new ItemRequirement("Basket of apples", ItemID.APPLES5).showConditioned(notArdyStraw);
 		compost = new ItemRequirement("Compost", ItemCollections.getCompost()).showConditioned(notArdyStraw);
 		basketOrCompost = new ItemRequirements(LogicType.OR, "Basket of apples or compost", compost, basket).showConditioned(notArdyStraw);
-		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notArdyStraw);
+		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notArdyStraw).isNotConsumed();
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);
 

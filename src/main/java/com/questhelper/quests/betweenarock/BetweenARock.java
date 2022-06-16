@@ -177,8 +177,8 @@ public class BetweenARock extends BasicQuestHelper
 	@Override
 	public void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes());
-		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer());
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).isNotConsumed();
+		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer()).isNotConsumed();
 		coins5 = new ItemRequirement("Coins", ItemCollections.getCoins(), 5);
 		page1 = new ItemRequirement("Book page 1", ItemID.BOOK_PAGE_1);
 		page2 = new ItemRequirement("Book page 2", ItemID.BOOK_PAGE_2);
@@ -218,7 +218,7 @@ public class BetweenARock extends BasicQuestHelper
 
 		solvedSchematic = new ItemRequirement("Schematic", ItemID.SCHEMATIC_4578);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);

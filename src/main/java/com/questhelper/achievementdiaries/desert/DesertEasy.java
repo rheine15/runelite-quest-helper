@@ -132,20 +132,20 @@ public class DesertEasy extends ComplexStateQuestHelper
 		rope = new ItemRequirement("Rope", ItemID.ROPE)
 			.showConditioned(new Conditions(LogicType.OR, notEnterKalph, notCollectCacti));
 		shantayPass = new ItemRequirement("Shantay pass", ItemID.SHANTAY_PASS).showConditioned(notEnterDesert);
-		birdSnare = new ItemRequirement("Bird snare", ItemID.BIRD_SNARE).showConditioned(notGoldWarbler);
-		pickaxe = new ItemRequirement("Pickaxe", ItemCollections.getPickaxes()).showConditioned(notFiveClay);
-		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notCutCactus);
-		desertBoots = new ItemRequirement("Desert boots", ItemID.DESERT_BOOTS).showConditioned(notEnterDesert);
-		desertRobe = new ItemRequirement("Desert robe", ItemID.DESERT_ROBE).showConditioned(notEnterDesert);
-		desertShirt = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT).showConditioned(notEnterDesert);
+		birdSnare = new ItemRequirement("Bird snare", ItemID.BIRD_SNARE).showConditioned(notGoldWarbler).isNotConsumed();
+		pickaxe = new ItemRequirement("Pickaxe", ItemCollections.getPickaxes()).showConditioned(notFiveClay).isNotConsumed();
+		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notCutCactus).isNotConsumed();
+		desertBoots = new ItemRequirement("Desert boots", ItemID.DESERT_BOOTS).showConditioned(notEnterDesert).isNotConsumed();
+		desertRobe = new ItemRequirement("Desert robe", ItemID.DESERT_ROBE).showConditioned(notEnterDesert).isNotConsumed();
+		desertShirt = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT).showConditioned(notEnterDesert).isNotConsumed();
 		pyramidPlunderArtefact = new ItemRequirement("Any Artefact from Pyramid Plunder",
 			ItemCollections.getPlunderArtefacts()).showConditioned(notSellArtefact);
-		emptyWaterskin = new ItemRequirement("Empty waterskin", ItemID.WATERSKIN0).showConditioned(notCutCactus);
+		emptyWaterskin = new ItemRequirement("Empty waterskin", ItemID.WATERSKIN0).showConditioned(notCutCactus).isNotConsumed();
 		grimyHerb = new ItemRequirement("Grimy herb", ItemCollections.getGrimyHerb());
 
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.getAntipoisons());
 		waterskin = new ItemRequirement("Waterskin", ItemCollections.getWaterskin());
-		pharaohSceptre = new ItemRequirement("Pharaoh's sceptre", ItemCollections.getPharoahSceptre());
+		pharaohSceptre = new ItemRequirement("Pharaoh's sceptre", ItemCollections.getPharoahSceptre()).isNotConsumed();
 		necklaceOfPassage = new ItemRequirement("Necklace of passage", ItemCollections.getNecklaceOfPassages());
 
 		combatGear = new ItemRequirement("Combat gear and ranged weapon or runes for multiple spell casts", -1, -1);

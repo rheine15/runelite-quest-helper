@@ -106,9 +106,9 @@ public class RFDFinal extends BasicQuestHelper
 	@Override
 	public void setupRequirements()
 	{
-		iceGloves = new ItemRequirement("Ice gloves", ItemID.ICE_GLOVES);
+		iceGloves = new ItemRequirement("Ice gloves", ItemID.ICE_GLOVES).isNotConsumed();
 		restorePotions = new ItemRequirement("Restore potions for Karamel", ItemCollections.getRestorePotions());
-		combatGear = new ItemRequirement("Combat gear, food and potions", -1, -1);
+		combatGear = new ItemRequirement("Combat gear, food and potions", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 	}

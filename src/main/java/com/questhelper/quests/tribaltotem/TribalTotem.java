@@ -108,7 +108,7 @@ public class TribalTotem extends BasicQuestHelper
  public void setupRequirements()
     {
         coins = new ItemRequirement("Coins or more for boat trips", ItemCollections.getCoins(), 90);
-        amuletOfGlory = new ItemRequirement("Amulet of glory", ItemCollections.getAmuletOfGlories());
+        amuletOfGlory = new ItemRequirement("Amulet of glory", ItemCollections.getAmuletOfGlories()).isNotConsumed();
         ardougneTeleports = new ItemRequirement("Ardougne teleports", ItemID.ARDOUGNE_TELEPORT);
         addressLabel = new ItemRequirement("Address label", ItemID.ADDRESS_LABEL);
         addressLabel.setHighlightInInventory(true);

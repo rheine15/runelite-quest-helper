@@ -219,19 +219,19 @@ public class RagAndBoneManII extends BasicQuestHelper
 	{
 		// Required items
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins());
-		pots = new ItemRequirement("Pot", ItemID.POT);
-		potNeeded = new ItemRequirement("Pot", ItemID.POT, 8).alsoCheckBank(questBank).highlighted();
+		pots = new ItemRequirement("Pot", ItemID.POT).isNotConsumed();
+		potNeeded = new ItemRequirement("Pot", ItemID.POT, 8).alsoCheckBank(questBank).highlighted().isNotConsumed();
 		logs = new ItemRequirement("Logs", ItemID.LOGS);
-		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX);
-		lightSource = new ItemRequirement("Light source", ItemCollections.getLightSources());
-		dustyKey = new ItemRequirement("Dusty key", ItemID.DUSTY_KEY);
+		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
+		lightSource = new ItemRequirement("Light source", ItemCollections.getLightSources()).isNotConsumed();
+		dustyKey = new ItemRequirement("Dusty key", ItemID.DUSTY_KEY).isNotConsumed();
 		dustyKey.canBeObtainedDuringQuest();
-		mirrorShield = new ItemRequirement("Mirror shield", ItemID.MIRROR_SHIELD);
+		mirrorShield = new ItemRequirement("Mirror shield", ItemID.MIRROR_SHIELD).isNotConsumed();
 		mirrorShield.addAlternates(ItemID.VS_SHIELD, ItemID.VS_SHIELD_24266);
 		iceCooler = new ItemRequirement("Ice coolers", ItemID.ICE_COOLER, 10);
 		fishingExplosive = new ItemRequirement("Fishing explosive", ItemID.FISHING_EXPLOSIVE, 10);
 		fishingExplosive.addAlternates(ItemID.FISHING_EXPLOSIVE_6664);
-		axe = new ItemRequirement("Any axe", ItemCollections.getAxes());
+		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).isNotConsumed();
 
 
 		// Optional items
@@ -244,10 +244,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		karamjaTeleport = new ItemRequirement("Karamja teleport", ItemCollections.getAmuletOfGlories());
 		karamjaTeleport.addAlternates(ItemID.BRIMHAVEN_TELEPORT, ItemID.TAI_BWO_WANNAI_TELEPORT);
 
-		antifireShield = new ItemRequirement("Antifire shield", ItemCollections.getAntifireShields());
+		antifireShield = new ItemRequirement("Antifire shield", ItemCollections.getAntifireShields()).isNotConsumed();
 		inoculationBracelet = new ItemRequirement("Inoculation bracelet or a potion for Disease",
 			ItemCollections.getAntidisease());
-		ectophial = new ItemRequirement("Ectophial", ItemID.ECTOPHIAL);
+		ectophial = new ItemRequirement("Ectophial", ItemID.ECTOPHIAL).isNotConsumed();
 		ringOfDueling = new ItemRequirement("Ring of dueling", ItemCollections.getRingOfDuelings());
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.getGamesNecklaces());
 		nardahTeleport = new ItemRequirement("Nardah teleport", ItemID.NARDAH_TELEPORT);
@@ -259,7 +259,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 		gnomeTeleport = new ItemRequirement("Teleport to Gnome Stronghold (Spirit tree/Gnome Glider", -1, 1);
 		feldipTeleport = new ItemRequirement("Teleport to Feldip Hills (Gnome Glider)", ItemID.FELDIP_HILLS_TELEPORT);
 
-		dramenStaff = new ItemRequirement("Dramen staff", ItemID.DRAMEN_STAFF);
+		dramenStaff = new ItemRequirement("Dramen staff", ItemID.DRAMEN_STAFF).isNotConsumed();
 		dramenStaff.addAlternates(ItemID.LUNAR_STAFF);
 
 

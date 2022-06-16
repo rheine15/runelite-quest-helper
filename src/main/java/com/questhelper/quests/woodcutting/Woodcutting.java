@@ -90,37 +90,37 @@ public class Woodcutting extends ComplexStateQuestHelper
 
 		ironAxe = new ItemRequirement("Iron axe", ItemID.IRON_AXE).showConditioned(
 			new Conditions(LogicType.NOR, wc6)
-		);
+		).isNotConsumed();
 		steelAxe = new ItemRequirement("Steel axe", ItemID.STEEL_AXE).showConditioned(
 			new Conditions(wc6, new Conditions(LogicType.NOR, wc11))
-		);
+		).isNotConsumed();
 		blackAxe = new ItemRequirement("Black axe", ItemID.BLACK_AXE).showConditioned(
 			new Conditions(wc11, new Conditions(LogicType.NOR, wc21))
-		);
+		).isNotConsumed();
 		mithrilAxe = new ItemRequirement("Mithril axe", ItemID.MITHRIL_AXE).showConditioned(
 			new Conditions(wc21, new Conditions(LogicType.NOR, wc31))
-		);
+		).isNotConsumed();
 		adamantAxe = new ItemRequirement("Adamant axe", ItemID.ADAMANT_AXE).showConditioned(
 			new Conditions(wc31, new Conditions(LogicType.NOR, wc41))
-		);
+		).isNotConsumed();
 		runeAxe = new ItemRequirement("Rune axe", ItemID.RUNE_AXE).showConditioned(
 			new Conditions(wc41, new Conditions(LogicType.NOR, wc61))
-		);
+		).isNotConsumed();
 		dragonAxe = new ItemRequirement("Dragon axe", ItemID.DRAGON_AXE).showConditioned(
 			new Conditions(wc61)
-		);
+		).isNotConsumed();
 
 
-		lumberjackBody = new ItemRequirement("Lumberjack top", ItemID.LUMBERJACK_TOP);
+		lumberjackBody = new ItemRequirement("Lumberjack top", ItemID.LUMBERJACK_TOP).isNotConsumed();
 		lumberjackBody = lumberjackBody.showConditioned(lumberjackBody.alsoCheckBank(questBank));
 
-		lumberjackHat = new ItemRequirement("Lumberjack hat", ItemID.LUMBERJACK_HAT);
+		lumberjackHat = new ItemRequirement("Lumberjack hat", ItemID.LUMBERJACK_HAT).isNotConsumed();
 		lumberjackHat = lumberjackHat.showConditioned(lumberjackHat.alsoCheckBank(questBank));
 
-		lumberjackLegs = new ItemRequirement("Lumberjack legs", ItemID.LUMBERJACK_LEGS);
+		lumberjackLegs = new ItemRequirement("Lumberjack legs", ItemID.LUMBERJACK_LEGS).isNotConsumed();
 		lumberjackLegs = lumberjackLegs.showConditioned(lumberjackLegs.alsoCheckBank(questBank));
 
-		lumberjackBoots = new ItemRequirement("Lumberjack boots", ItemID.LUMBERJACK_BOOTS);
+		lumberjackBoots = new ItemRequirement("Lumberjack boots", ItemID.LUMBERJACK_BOOTS).isNotConsumed();
 		lumberjackBoots = lumberjackBoots.showConditioned(lumberjackBoots.alsoCheckBank(questBank));
 	}
 

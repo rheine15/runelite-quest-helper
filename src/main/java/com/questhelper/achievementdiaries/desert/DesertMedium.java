@@ -141,11 +141,11 @@ public class DesertMedium extends ComplexStateQuestHelper
 
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins()).showConditioned(notMagicCarpet);
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(new Conditions(LogicType.OR, notOrangeSally,
-			notEagleTravel, notVisitGenie));
-		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.SMALL_FISHING_NET).showConditioned(notOrangeSally);
-		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(notChopTeak);
+			notEagleTravel, notVisitGenie)).isNotConsumed();
+		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.SMALL_FISHING_NET).showConditioned(notOrangeSally).isNotConsumed();
+		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(notChopTeak).isNotConsumed();
 		lightSource = new ItemRequirement("Light source", ItemCollections.getLightSources())
-			.showConditioned(notVisitGenie);
+			.showConditioned(notVisitGenie).isNotConsumed();
 		scrollOfRedir = new ItemRequirement("Scroll of redirection", ItemID.SCROLL_OF_REDIRECTION)
 			.showConditioned(notTPPollnivneach);
 		teleToHouse = new ItemRequirement("Teleport to house", ItemID.TELEPORT_TO_HOUSE)
@@ -159,10 +159,10 @@ public class DesertMedium extends ComplexStateQuestHelper
 		combatGear = new ItemRequirement("Combat gear", -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		desertBoots = new ItemRequirement("Desert boots", ItemID.DESERT_BOOTS);
-		desertRobe = new ItemRequirement("Desert robe", ItemID.DESERT_ROBE);
-		desertShirt = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT);
-		waterskin = new ItemRequirement("Waterskin", ItemCollections.getWaterskin());
+		desertBoots = new ItemRequirement("Desert boots", ItemID.DESERT_BOOTS).isNotConsumed();
+		desertRobe = new ItemRequirement("Desert robe", ItemID.DESERT_ROBE).isNotConsumed();
+		desertShirt = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT).isNotConsumed();
+		waterskin = new ItemRequirement("Waterskin", ItemCollections.getWaterskin()).isNotConsumed();
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);
 

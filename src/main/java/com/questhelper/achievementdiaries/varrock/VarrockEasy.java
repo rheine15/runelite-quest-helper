@@ -137,14 +137,15 @@ public class VarrockEasy extends ComplexStateQuestHelper
 
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins(), 150).showConditioned(new Conditions(LogicType.OR,
 			notNews, notPlank));
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(notIron);
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(notIron).isNotConsumed();
 		log = new ItemRequirement("Logs", ItemID.LOGS).showConditioned(notPlank);
-		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(notDyingTree);
+		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(notDyingTree).isNotConsumed();
 		bone = new ItemRequirement("Bones", ItemCollections.getBones()).showConditioned(notDogBone);
 		softClay = new ItemRequirement("Soft clay", ItemID.SOFT_CLAY).showConditioned(notBowl);
-		earthTali = new ItemRequirement("Access to Earth altar, or travel through abyss", ItemCollections.getEarthAltar()).showConditioned(notEarthRune);
+		earthTali = new ItemRequirement("Access to Earth altar, or travel through abyss", ItemCollections.getEarthAltar())
+			.showConditioned(notEarthRune).isNotConsumed();
 		essence = new ItemRequirement("Essence", ItemCollections.getEssenceLow()).showConditioned(notEarthRune);
-		flyRod = new ItemRequirement("Fly fishing rod", ItemID.FLY_FISHING_ROD).showConditioned(notTrout);
+		flyRod = new ItemRequirement("Fly fishing rod", ItemID.FLY_FISHING_ROD).showConditioned(notTrout).isNotConsumed();
 		feathers = new ItemRequirement("Feather", ItemID.FEATHER).showConditioned(notTrout);
 		unfiredBowl = new ItemRequirement("Unfired bowl", ItemID.UNFIRED_BOWL);
 

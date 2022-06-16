@@ -155,12 +155,12 @@ public class KaramjaMedium extends BasicQuestHelper
 		notTraveledToKhazard = new VarbitRequirement(3596, 0);
 		notCharteredFromShipyard = new VarbitRequirement(3597, 0);
 
-		pickaxe =
-			new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(new Conditions(LogicType.OR,
-				notMinedRedRopaz, notEarned100));
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(new Conditions(LogicType.OR,
+				notMinedRedRopaz, notEarned100)).isNotConsumed();
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins()).showConditioned(new Conditions(LogicType.OR,
 			notClaimedTicket, notUsedCart, notTraveledToKhazard, notCharteredFromShipyard));
-		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.SMALL_FISHING_NET).showConditioned(notCaughtKarambwan);
+		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.SMALL_FISHING_NET)
+			.showConditioned(notCaughtKarambwan).isNotConsumed();
 
 		spiderCarcass = new ItemRequirement("Spider carcass", ItemID.SPIDER_CARCASS).showConditioned(notCookedSpider);
 		spiderCarcass.setTooltip("You can get one killing a spider during Tai Bwo Wannai Cleanup");
@@ -169,30 +169,30 @@ public class KaramjaMedium extends BasicQuestHelper
 		skewerTicksOrArrowShaft.addAlternates(ItemID.SKEWER_STICK);
 		goutTuber = new ItemRequirement("Gout tuber", ItemID.GOUT_TUBER).showConditioned(notExchangedGems);
 		goutTuber.setTooltip("This can be obtained rarely during Tai Bwo Wannai Cleanup. Have a spade to dig it up");
-		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notGrownFruitTree);
+		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notGrownFruitTree).isNotConsumed();
 		fruitTreeSapling = new ItemRequirement("A fruit tree sapling you can plant, preferably Palm Tree for the " +
 			"Elite diary", ItemID.PALM_SAPLING).showConditioned(notGrownFruitTree);
 		fruitTreeSapling.addAlternates(ItemID.APPLE_SAPLING, ItemID.BANANA_SAPLING, ItemID.ORANGE_SAPLING, ItemID.CURRY_SAPLING,
 			ItemID.PINEAPPLE_SAPLING, ItemID.PAPAYA_SAPLING, ItemID.DRAGONFRUIT_SAPLING);
-		teasingStick = new ItemRequirement("Teasing stick", ItemID.TEASING_STICK).showConditioned(notTrappedGraahk);
+		teasingStick = new ItemRequirement("Teasing stick", ItemID.TEASING_STICK).showConditioned(notTrappedGraahk).isNotConsumed();
 		teasingStick.setTooltip("You can buy one from the hunter shop in Yanille");
-		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notTrappedGraahk);
-		logs = new ItemRequirement("Logs", ItemID.LOGS).showConditioned(notTrappedGraahk);
+		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notTrappedGraahk).isNotConsumed();
+		logs = new ItemRequirement("Logs", ItemID.LOGS).showConditioned(notTrappedGraahk).isNotConsumed();
 		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(new Conditions(LogicType.OR,
-			notTrappedGraahk, notCrossedLava, notClimbedStairs, notCutVine, notCutTeak, notCutMahog));
+			notTrappedGraahk, notCrossedLava, notClimbedStairs, notCutVine, notCutTeak, notCutMahog)).isNotConsumed();
 		tradingSticks = new ItemRequirement("Trading sticks", ItemID.TRADING_STICKS).showConditioned(notExchangedGems);
 		tradingSticks.setTooltip("You can get these from villagers when doing Tai Bwo Wannai Cleanup");
 		opal = new ItemRequirement("Opal", ItemID.OPAL).showConditioned(notExchangedGems);
 		opal.setTooltip("You can bring a jade or red topaz instead for a machete if you also bring more trading " +
 			"sticks");
-		karambwanVessel = new ItemRequirement("Karambwan vessel", ItemID.KARAMBWAN_VESSEL).showConditioned(notCaughtKarambwan);
+		karambwanVessel = new ItemRequirement("Karambwan vessel", ItemID.KARAMBWAN_VESSEL).showConditioned(notCaughtKarambwan).isNotConsumed();
 		karambwanVessel.addAlternates(ItemID.KARAMBWAN_VESSEL_3159);
 		rawKarambwanji = new ItemRequirement("Raw karambwanji, or a small fishing net to catch some",
 			ItemID.RAW_KARAMBWANJI).showConditioned(notCaughtKarambwan);
 
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(new Conditions(LogicType.OR,
-			notEarned100, notGrownFruitTree));
-		machete = new ItemRequirement("Machete", ItemID.RED_TOPAZ_MACHETE).showConditioned((notEarned100));
+			notEarned100, notGrownFruitTree)).isNotConsumed();
+		machete = new ItemRequirement("Machete", ItemID.RED_TOPAZ_MACHETE).showConditioned((notEarned100)).isNotConsumed();
 		machete.addAlternates(ItemID.JADE_MACHETE, ItemID.OPAL_MACHETE, ItemID.MACHETE);
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);

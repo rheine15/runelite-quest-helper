@@ -178,16 +178,16 @@ public class MountainDaughter extends BasicQuestHelper
 	public void setupRequirements()
 	{
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemID.BRONZE_PICKAXE);
+		pickaxe = new ItemRequirement("Any pickaxe", ItemID.BRONZE_PICKAXE).isNotConsumed();
 		pickaxe.addAlternates(ItemCollections.getPickaxes());
 
-		axe = new ItemRequirement("Any axe", ItemCollections.getAxes());
+		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).isNotConsumed();
 		plank = new ItemRequirement("Any plank", ItemID.PLANK);
 		plank.addAlternates(ItemID.OAK_PLANK, ItemID.TEAK_PLANK, ItemID.MAHOGANY_PLANK);
-		pole = new ItemRequirement("A staff or a pole", ItemID.POLE);
+		pole = new ItemRequirement("A staff or a pole", ItemID.POLE).isNotConsumed();
 		pole.addAlternates(ItemID.LUNAR_STAFF);
 		pole.setTooltip("You can find one in the north part of the Mountain Camp.");
-		gloves = new ItemRequirement("Almost any gloves", ItemID.LEATHER_GLOVES);
+		gloves = new ItemRequirement("Almost any gloves", ItemID.LEATHER_GLOVES).isNotConsumed();
 		gloves.addAlternates(ItemID.BARROWS_GLOVES, ItemID.DRAGON_GLOVES, ItemID.RUNE_GLOVES, ItemID.ADAMANT_GLOVES, ItemID.MITHRIL_GLOVES,
 			ItemID.BLACK_GLOVES, ItemID.STEEL_GLOVES, ItemID.IRON_GLOVES, ItemID.BRONZE_GLOVES, ItemID.HARDLEATHER_GLOVES,
 			ItemID.FEROCIOUS_GLOVES, ItemID.GRACEFUL_GLOVES, ItemID.GRANITE_GLOVES);
@@ -208,7 +208,7 @@ public class MountainDaughter extends BasicQuestHelper
 		corpse.setTooltip("You can find this corpse again in the Kendal's cave.");
 		muddyRocks = new ItemRequirement("Muddy rock", ItemID.MUDDY_ROCK, 5);
 		slayerRing = new ItemRequirement("Slayer ring for teleports", ItemCollections.getSlayerRings());
-		combatGear = new ItemRequirement("Combat gear for The Kendal fight", -1, -1);
+		combatGear = new ItemRequirement("Combat gear for The Kendal fight", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		rocks = new ItemRequirement("Muddy rock", ItemID.MUDDY_ROCK);

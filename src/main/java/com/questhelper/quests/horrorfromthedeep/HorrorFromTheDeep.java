@@ -155,15 +155,15 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 		sword = new ItemRequirement("Any sword you're willing to lose", ItemCollections.getSwords());
 		arrow = new ItemRequirement("Any arrow", ItemCollections.getMetalArrows());
 		moltenGlass = new ItemRequirement("Molten glass", ItemID.MOLTEN_GLASS);
-		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX);
-		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer());
+		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
+		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer()).isNotConsumed();
 		steelNails = new ItemRequirement("Steel nails", ItemID.STEEL_NAILS);
 		plank2 = new ItemRequirement("Plank", ItemID.PLANK, 2);
 		plank = new ItemRequirement("Plank", ItemID.PLANK);
 		swampTar1 = new ItemRequirement("Swamp tar", ItemID.SWAMP_TAR);
 
 
-		magicCombat = new ItemRequirement("Magic combat gear", -1, -1);
+		magicCombat = new ItemRequirement("Magic combat gear", -1, -1).isNotConsumed();
 		magicCombat.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 		combatRunes = new ItemRequirement("20+ casts of each element spell", -1, -1);
 		combatRunes.setDisplayItemId(ItemID.DEATH_RUNE);

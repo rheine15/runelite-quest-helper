@@ -136,18 +136,18 @@ public class LumbridgeMedium extends ComplexStateQuestHelper
 		notPuroImp = new VarplayerRequirement(1194, false, 23);
 		notCraftLava = new VarplayerRequirement(1194, false, 24);
 
-		crossbow = new ItemRequirement("A crossbow", ItemCollections.getCrossbows()).showConditioned(notGrappleLum);
-		mithGrap = new ItemRequirement("Mith grapple", ItemID.MITH_GRAPPLE_9419).showConditioned(notGrappleLum);
-		earthTali = new ItemRequirement("Earth talisman", ItemID.EARTH_TALISMAN).showConditioned(notCraftLava);
-		fireAccess = new ItemRequirement("Access to fire altar", ItemCollections.getFireAltar()).showConditioned(notCraftLava);
+		crossbow = new ItemRequirement("A crossbow", ItemCollections.getCrossbows()).showConditioned(notGrappleLum).isNotConsumed();
+		mithGrap = new ItemRequirement("Mith grapple", ItemID.MITH_GRAPPLE_9419).showConditioned(notGrappleLum).isNotConsumed();
+		earthTali = new ItemRequirement("Earth talisman", ItemID.EARTH_TALISMAN).showConditioned(notCraftLava).isNotConsumed();
+		fireAccess = new ItemRequirement("Access to fire altar", ItemCollections.getFireAltar()).showConditioned(notCraftLava).isNotConsumed();
 		earthRune = new ItemRequirement("Earth rune", ItemID.EARTH_RUNE)
 			.showConditioned(new Conditions(LogicType.OR, notCraftLava, notTPlumb));
 		essence = new ItemRequirement("Essence", ItemCollections.getEssenceLow()).showConditioned(notCraftLava);
 		bindingNeck = new ItemRequirement("Binding necklace", ItemID.BINDING_NECKLACE).showConditioned(notCraftLava);
 		feathers = new ItemRequirement("Feathers", ItemID.FEATHER).showConditioned(notCatchSalmon);
-		flyFishingRod = new ItemRequirement("Fly fishing rod", ItemID.FLY_FISHING_ROD).showConditioned(notCatchSalmon);
-		needle = new ItemRequirement("Needle", ItemID.NEEDLE).showConditioned(notCraftCoif);
-		thread = new ItemRequirement("Thread", ItemID.THREAD).showConditioned(notCraftCoif);
+		flyFishingRod = new ItemRequirement("Fly fishing rod", ItemID.FLY_FISHING_ROD).showConditioned(notCatchSalmon).isNotConsumed();
+		needle = new ItemRequirement("Needle", ItemID.NEEDLE).showConditioned(notCraftCoif).isNotConsumed();
+		thread = new ItemRequirement("Thread", ItemID.THREAD).showConditioned(notCraftCoif).isNotConsumed();
 		leather = new ItemRequirement("Leather", ItemID.LEATHER).showConditioned(notCraftCoif);
 		lawRune = new ItemRequirement("Law rune", ItemID.LAW_RUNE).showConditioned(notTPlumb);
 		airRune = new ItemRequirement("Air rune", ItemID.AIR_RUNE).showConditioned(notTPlumb);
@@ -156,11 +156,11 @@ public class LumbridgeMedium extends ComplexStateQuestHelper
 		avasAttractor = new ItemRequirement("Ava's Attractor", ItemID.AVAS_ATTRACTOR).showConditioned(notUpgradeDevice);
 		avasAccumulator = new ItemRequirements(LogicType.OR, "999 Coins or Ava's Attractor", coins.quantity(999),
 			avasAttractor);
-		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(notChopWillow);
+		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(notChopWillow).isNotConsumed();
 		fairyAccess = new ItemRequirement("Lunar or Dramen staff", ItemCollections.getFairyStaff())
-			.showConditioned(new Conditions(LogicType.OR, notChaeldarTask, notPuroImp, notWizardFairy));
-		butterflyNet = new ItemRequirement("Butterfly net", ItemID.BUTTERFLY_NET).showConditioned(notPuroImp);
-		implingJar = new ItemRequirement("Impling jar", ItemID.IMPLING_JAR).showConditioned(notPuroImp);
+			.showConditioned(new Conditions(LogicType.OR, notChaeldarTask, notPuroImp, notWizardFairy)).isNotConsumed();
+		butterflyNet = new ItemRequirement("Butterfly net", ItemID.BUTTERFLY_NET).showConditioned(notPuroImp).isNotConsumed();
+		implingJar = new ItemRequirement("Impling jar", ItemID.IMPLING_JAR).showConditioned(notPuroImp).isNotConsumed();
 
 
 		inLavaAltar = new ZoneRequirement(lavaAltar);

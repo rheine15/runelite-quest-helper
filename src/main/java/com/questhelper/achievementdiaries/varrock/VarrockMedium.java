@@ -158,7 +158,7 @@ public class VarrockMedium extends ComplexStateQuestHelper
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins()).showConditioned(new Conditions(LogicType.OR, notApothStr, notCatColour, notMaho20));
 		limpRoot = new ItemRequirement("Limpwurt root", ItemID.LIMPWURT_ROOT).showConditioned(notApothStr);
 		redSpiderEgg = new ItemRequirement("Red spiders' egg", ItemID.RED_SPIDERS_EGGS).showConditioned(notApothStr);
-		ringOfCharos = new ItemRequirement("Ring of charos (A)", ItemID.RING_OF_CHAROSA).showConditioned(notCatColour);
+		ringOfCharos = new ItemRequirement("Ring of charos (A)", ItemID.RING_OF_CHAROSA).showConditioned(notCatColour).isNotConsumed();
 		digsitePend = new ItemRequirement("Digsite pendant", ItemCollections.getDigsitePendants()).showConditioned(notTPDigsite);
 		lawRune = new ItemRequirement("Law rune", ItemID.LAW_RUNE).showConditioned(notTPVarrock);
 		airRune = new ItemRequirement("Air rune", ItemID.AIR_RUNE).showConditioned(notTPVarrock);

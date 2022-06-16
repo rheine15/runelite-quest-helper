@@ -144,37 +144,37 @@ public class KourendMedium extends ComplexStateQuestHelper
 
 		// Required items
 		dramenStaff = new ItemRequirement("Dramen or Lunar staff", ItemCollections.getFairyStaff(), 1, true)
-			.showConditioned(notFairyRing);
+			.showConditioned(notFairyRing).isNotConsumed();
 		kharedstsMemoirs = new ItemRequirement("Kharedst's Memoirs or Book of the Dead",
-			Arrays.asList(ItemID.BOOK_OF_THE_DEAD, ItemID.KHAREDSTS_MEMOIRS)).showConditioned(notTravelWithMemoirs);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(notMineSulphur);
+			Arrays.asList(ItemID.BOOK_OF_THE_DEAD, ItemID.KHAREDSTS_MEMOIRS)).showConditioned(notTravelWithMemoirs).isNotConsumed();
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).showConditioned(notMineSulphur).isNotConsumed();
 		faceMask = new ItemRequirement("Facemask or slayer helmet", ItemCollections.getSlayerHelmets(), 1, true)
-			.showConditioned(notMineSulphur);
+			.showConditioned(notMineSulphur).isNotConsumed();
 		faceMask.addAlternates(ItemID.FACEMASK, ItemID.GAS_MASK);
-		hammer = new ItemRequirement("A hammer", ItemCollections.getHammer()).showConditioned(notRepairCrane);
+		hammer = new ItemRequirement("A hammer", ItemCollections.getHammer()).showConditioned(notRepairCrane).isNotConsumed();
 		nails = new ItemRequirement("Nails", ItemCollections.getNails(), 50).showConditioned(notRepairCrane);
 		planks = new ItemRequirement("3 Planks", ItemID.PLANK).showConditioned(notRepairCrane);
 		kingWorm = new ItemRequirement("King worm or fish chunks", ItemID.KING_WORM).showConditioned(notCatchBluegill);
 		kingWorm.addAlternates(ItemID.FISH_CHUNKS);
 		kingWorm.setTooltip("Obtainable on Molch Island");
 		axe = new ItemRequirement("Any axe", ItemCollections.getAxes()).showConditioned(new Conditions(LogicType.OR,
-			notSubdueWintertodt, notChopMahoganyTree));
+			notSubdueWintertodt, notChopMahoganyTree)).isNotConsumed();
 		tinderbox = new ItemRequirement("Tinderbox", Arrays.asList(ItemID.BRUMA_TORCH, ItemID.TINDERBOX))
-			.showConditioned(notSubdueWintertodt);
-		boxTrap = new ItemRequirement("Box trap", ItemID.BOX_TRAP).showConditioned(notCatchChinchompa);
+			.showConditioned(notSubdueWintertodt).isNotConsumed();
+		boxTrap = new ItemRequirement("Box trap", ItemID.BOX_TRAP).showConditioned(notCatchChinchompa).isNotConsumed();
 		intelligence = new ItemRequirement("Intelligence", ItemID.INTELLIGENCE).showConditioned(notDeliverIntelligence);
 
 		// Recommended items
-		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notSubdueWintertodt);
+		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notSubdueWintertodt).isNotConsumed();
 		warmClothing = new ItemRequirement("Warm clothing", ItemCollections.getWarmClothing(), 4, true)
-			.showConditioned(notSubdueWintertodt);
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+			.showConditioned(notSubdueWintertodt).isNotConsumed();
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1).showConditioned(notKillLizardman);
 		antipoison = new ItemRequirement("Anti-poison", ItemCollections.getAntipoisons())
 			.showConditioned(notKillLizardman);
 		radasBlessing1 = new ItemRequirement("Rada's Blessing (1)", ItemID.RADAS_BLESSING_1, -1)
-			.showConditioned(notCatchChinchompa);
+			.showConditioned(notCatchChinchompa).isNotConsumed();
 
 		// Required quests
 		fairytaleII = new QuestRequirement(QuestHelperQuest.FAIRYTALE_II__CURE_A_QUEEN, QuestState.IN_PROGRESS);

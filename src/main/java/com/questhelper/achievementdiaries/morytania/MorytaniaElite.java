@@ -135,41 +135,41 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 
 		ahrimSet = new ItemRequirements("Ahrim Set", new ItemRequirement("Hood", ItemCollections.getAhrimHood()),
 			new ItemRequirement("Staff", ItemCollections.getAhrimStaff()), new ItemRequirement("Top",
-			ItemCollections.getAhrimRobeTop()), new ItemRequirement("Skirt", ItemCollections.getAhrimRobeSkirt()));
+			ItemCollections.getAhrimRobeTop()), new ItemRequirement("Skirt", ItemCollections.getAhrimRobeSkirt())).isNotConsumed();
 
 		karilSet = new ItemRequirements("Karil Set", new ItemRequirement("Crossbow",
 			ItemCollections.getKarilCrossbow()), new ItemRequirement("Coif", ItemCollections.getKarilCoif()),
 			new ItemRequirement("Top", ItemCollections.getKarilTop()), new ItemRequirement("Skirt",
-			ItemCollections.getKarilSkirt()));
+			ItemCollections.getKarilSkirt())).isNotConsumed();
 
 		guthanSet = new ItemRequirements("Guthan Set", new ItemRequirement("Helm", ItemCollections.getGuthanHelm()),
 			new ItemRequirement("Spear", ItemCollections.getGuthanWarspear()), new ItemRequirement("Body",
-			ItemCollections.getGuthanBody()), new ItemRequirement("Skirt", ItemCollections.getGuthanSkirt()));
+			ItemCollections.getGuthanBody()), new ItemRequirement("Skirt", ItemCollections.getGuthanSkirt())).isNotConsumed();
 
 		veracSet = new ItemRequirements("Verac Set", new ItemRequirement("Helm", ItemCollections.getVeracHelm()),
 			new ItemRequirement("Flail", ItemCollections.getVeracFlail()), new ItemRequirement("Brassard",
-			ItemCollections.getVeracBrassard()), new ItemRequirement("Skirt", ItemCollections.getVeracSkirt()));
+			ItemCollections.getVeracBrassard()), new ItemRequirement("Skirt", ItemCollections.getVeracSkirt())).isNotConsumed();
 
 		dharokSet = new ItemRequirements("Dharok Set", new ItemRequirement("Helm", ItemCollections.getDharokHelm()),
 			new ItemRequirement("Axe", ItemCollections.getDharokAxe()), new ItemRequirement("Body",
-			ItemCollections.getDharokBody()), new ItemRequirement("Legs", ItemCollections.getDharokLegs()));
+			ItemCollections.getDharokBody()), new ItemRequirement("Legs", ItemCollections.getDharokLegs())).isNotConsumed();
 
 		toragSet = new ItemRequirements("Torag Set", new ItemRequirement("Helm", ItemCollections.getToragHelm()),
 			new ItemRequirement("Hammers", ItemCollections.getToragHammers()), new ItemRequirement("Body",
-			ItemCollections.getToragBody()), new ItemRequirement("legs", ItemCollections.getToragLegs()));
+			ItemCollections.getToragBody()), new ItemRequirement("legs", ItemCollections.getToragLegs())).isNotConsumed();
 
 		barrowsSet = new ItemRequirements(LogicType.OR, "Any complete barrows set", ahrimSet, karilSet, guthanSet,
-			veracSet, dharokSet, toragSet).showConditioned(notBarrowsChest);
+			veracSet, dharokSet, toragSet).showConditioned(notBarrowsChest).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);
 		barrowsTab = new ItemRequirement("Barrows teleport", ItemID.BARROWS_TELEPORT);
 		slayerRing = new ItemRequirement("Slayer ring", ItemCollections.getSlayerRings());
-		ectophial = new ItemRequirement("Ectophial", ItemID.ECTOPHIAL);
+		ectophial = new ItemRequirement("Ectophial", ItemID.ECTOPHIAL).isNotConsumed();
 		mortTP = new ItemRequirement("Mort'ton Teleport", ItemID.MORTTON_TELEPORT);
-		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notBarrowsChest);
+		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notBarrowsChest).isNotConsumed();
 
 		lunarBook = new SpellbookRequirement(Spellbook.LUNAR);
 

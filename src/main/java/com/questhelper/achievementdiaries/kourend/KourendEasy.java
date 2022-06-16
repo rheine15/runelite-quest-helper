@@ -130,8 +130,8 @@ public class KourendEasy extends ComplexStateQuestHelper
 		notFishTrout = new VarplayerRequirement(2085, false, 12);
 
 		// Required items
-		pickaxe = new ItemRequirement("Pickaxe", ItemCollections.getPickaxes()).showConditioned(notMineIron);
-		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notDigSaltpeter);
+		pickaxe = new ItemRequirement("Pickaxe", ItemCollections.getPickaxes()).showConditioned(notMineIron).isNotConsumed();
+		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notDigSaltpeter).isNotConsumed();
 		libraryBook = new ItemRequirement("Arceuus library book", ItemCollections.getArceuusBooks()).showConditioned(notArceuusBook);
 
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins(), 8075).showConditioned(notEnterPoh);
@@ -139,11 +139,11 @@ public class KourendEasy extends ComplexStateQuestHelper
 		tarrominPotU = new ItemRequirement("Tarromin potion (unf)", ItemID.TARROMIN_POTION_UNF).showConditioned(notStrengthPotion);
 		limpwurtRoot = new ItemRequirement("Limpwurt root", ItemID.LIMPWURT_ROOT).showConditioned(notStrengthPotion);
 		flyFishingRod = new ItemRequirement("Fly fishing rod", Arrays.asList(ItemID.FLY_FISHING_ROD, ItemID.PEARL_FLY_FISHING_ROD))
-			.showConditioned(notFishTrout);
+			.showConditioned(notFishTrout).isNotConsumed();
 		feathers = new ItemRequirement("Feathers", ItemID.FEATHER, 10).showConditioned(notFishTrout);
 
 		// Recommended items
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);
 		inPub = new ZoneRequirement(deeperLodePub);

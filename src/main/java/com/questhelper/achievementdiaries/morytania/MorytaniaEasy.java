@@ -129,29 +129,29 @@ public class MorytaniaEasy extends ComplexStateQuestHelper
 		notKillWerewolf = new VarplayerRequirement(1180, false, 10);
 		notRestorePrayer = new VarplayerRequirement(1180, false, 11);
 
-		chisel = new ItemRequirement("Chisel", ItemID.CHISEL).showConditioned(notCraftSnelm);
+		chisel = new ItemRequirement("Chisel", ItemID.CHISEL).showConditioned(notCraftSnelm).isNotConsumed();
 		snailShell = new ItemRequirement("Blamish snail shell", ItemCollections.getSnailShells())
 			.showConditioned(notCraftSnelm);
 		thinSnail = new ItemRequirement("Thin snail", ItemID.THIN_SNAIL).showConditioned(notCookSnail);
 		tannableHide = new ItemRequirement("Tannable hide", ItemCollections.getTannableHide()).showConditioned(notSbottTan);
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins()).showConditioned(notSbottTan);
-		scarecrow = new ItemRequirement("Scarecrow", ItemID.SCARECROW).showConditioned(notPlaceScarecrow);
+		scarecrow = new ItemRequirement("Scarecrow", ItemID.SCARECROW).showConditioned(notPlaceScarecrow).isNotConsumed();
 		scarecrow.setTooltip("Created by combining a bronze spear, watermelon, and hay sack (empty sack filled at a " +
 			"hay bale, nearest to Morytania is North-West of Lumbridge)");
 		bonemeal = new ItemRequirement("Bonemeal", ItemCollections.getBonemeal()).showConditioned(notOfferBonemeal);
 		bucketOfSlime = new ItemRequirement("Bucket of slime", ItemID.BUCKET_OF_SLIME).showConditioned(notOfferBonemeal);
-		wolfbane = new ItemRequirement("Wolfbane dagger", ItemID.WOLFBANE).showConditioned(notKillWerewolf);
+		wolfbane = new ItemRequirement("Wolfbane dagger", ItemID.WOLFBANE).showConditioned(notKillWerewolf).isNotConsumed();
 		bones = new ItemRequirement("Bones", ItemCollections.getBones()).showConditioned(notOfferBonemeal);
 		pot = new ItemRequirement("Pot", ItemID.POT).showConditioned(notOfferBonemeal);
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET).showConditioned(notOfferBonemeal);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.getGoodEatingFood(), -1);
-		earProtection = new ItemRequirement("Ear protection", ItemCollections.getEarProtection()).showConditioned(notKillBanshee);
+		earProtection = new ItemRequirement("Ear protection", ItemCollections.getEarProtection()).showConditioned(notKillBanshee).isNotConsumed();
 		ectoToken = new ItemRequirement("Ecto-Token", ItemID.ECTOTOKEN).showConditioned(notCookSnail);
-		ghostSpeak = new ItemRequirement("Ghostspeak amulet", ItemID.GHOSTSPEAK_AMULET).showConditioned(notCookSnail);
+		ghostSpeak = new ItemRequirement("Ghostspeak amulet", ItemID.GHOSTSPEAK_AMULET).showConditioned(notCookSnail).isNotConsumed();
 
 		inGrotto = new ZoneRequirement(grotto);
 		inBonezone = new ZoneRequirement(bonezone);

@@ -125,16 +125,17 @@ public class VarrockElite extends ComplexStateQuestHelper
 		earthRune = new ItemRequirement("Earth rune", ItemID.EARTH_RUNE).showConditioned(notPlankMake);
 		coins = new ItemRequirement("Coins", ItemCollections.getCoins()).showConditioned(notPlankMake);
 		mahoganyLog = new ItemRequirement("Mahogany logs", ItemID.MAHOGANY_LOGS).showConditioned(notPlankMake);
-		cookingGuild = new ItemRequirement("Access to cooking guild", ItemCollections.getCookingGuild()).showConditioned(notSummerPie);
+		cookingGuild = new ItemRequirement("Access to cooking guild", ItemCollections.getCookingGuild())
+			.showConditioned(notSummerPie).isNotConsumed();
 		cookingGuild.setTooltip("A chef's hat, Varrock Armour 3, or Cooking Cape");
 		rawPie = new ItemRequirement("Raw summer pie", ItemID.RAW_SUMMER_PIE).showConditioned(notSummerPie);
 		runeBar = new ItemRequirement("Rune bar", ItemID.RUNITE_BAR).showConditioned(notRuneDart);
 		feather = new ItemRequirement("Feather", ItemID.FEATHER).showConditioned(notRuneDart);
-		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notRuneDart);
+		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notRuneDart).isNotConsumed();
 		runeDartTip = new ItemRequirement("Rune dart tip", ItemID.RUNE_DART_TIP);
 		essence = new ItemRequirement("Essence", ItemCollections.getEssenceLow()).showConditioned(not100Earth);
 		earthTali = new ItemRequirement("Access to Earth altar, or travel through abyss",
-			ItemCollections.getEarthAltar()).showConditioned(not100Earth);
+			ItemCollections.getEarthAltar()).showConditioned(not100Earth).isNotConsumed();
 
 		inBank = new ZoneRequirement(bank);
 		inLumb = new ZoneRequirement(lumb);

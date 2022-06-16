@@ -264,8 +264,8 @@ public class ElementalWorkshopII extends BasicQuestHelper
 	@Override
 	public void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes());
-		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer());
+		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.getPickaxes()).isNotConsumed();
+		hammer = new ItemRequirement("Hammer", ItemCollections.getHammer()).isNotConsumed();
 		coal = new ItemRequirement("Coal", ItemID.COAL, 8);
 		batteredKey = new ItemRequirement("Battered key", ItemID.BATTERED_KEY);
 		batteredKey.setTooltip("You can get another by searching the bookcase in the house south of the elemental " +
