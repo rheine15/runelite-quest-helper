@@ -46,12 +46,10 @@ import com.questhelper.questhelpers.BasicQuestHelper;
 import com.questhelper.questhelpers.ComplexStateQuestHelper;
 import com.questhelper.questhelpers.Quest;
 import com.questhelper.questhelpers.QuestHelper;
-import com.questhelper.requirements.Requirement;
 import com.questhelper.requirements.item.ItemRequirement;
 import com.questhelper.steps.QuestStep;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -251,6 +249,7 @@ public class QuestHelperPlugin extends Plugin
 	private boolean displayNameKnown;
 
 	public SortedMap<String, List<ItemRequirement>> itemRequirements = new TreeMap<>();
+	public SortedMap<String, List<ItemRequirement>> itemRecommended = new TreeMap<>();
 
 	@Getter
 	private int lastTickInventoryUpdated = -1;
@@ -764,6 +763,7 @@ public class QuestHelperPlugin extends Plugin
 
 		clientThread.invokeLater(() -> {
 			SortedMap<String, List<ItemRequirement>> newReqs = new TreeMap<>();
+			SortedMap<String, List<ItemRequirement>> newRecommended = new TreeMap<>();
 			filteredQuests.forEach((QuestHelper questHelper) -> {
 				eventBus.register(questHelper);
 				if (questHelper instanceof BasicQuestHelper)
@@ -779,9 +779,14 @@ public class QuestHelperPlugin extends Plugin
 				{
 					newReqs.put(questHelper.getQuest().getName(), questHelper.getItemRequirements());
 				}
+				if (questHelper.getItemRecommended() != null)
+				{
+					newRecommended.put(questHelper.getQuest().getName(), questHelper.getItemRecommended());
+				}
 				eventBus.unregister(questHelper);
 			});
 			itemRequirements = newReqs;
+			itemRecommended = newRecommended;
 		});
 	}
 

@@ -253,7 +253,7 @@ public class EadgarsRuse extends BasicQuestHelper
 	public void setupRequirements()
 	{
 		climbingBoots = new ItemRequirement("Climbing boots", ItemID.CLIMBING_BOOTS).isNotConsumed();
-		climbingBootsEquipped = new ItemRequirement("Climbing boots", ItemID.CLIMBING_BOOTS, 1, true);
+		climbingBootsEquipped = climbingBoots.equipped();
 		vodka = new ItemRequirement("Vodka", ItemID.VODKA);
 		pineappleChunks = new ItemRequirement("Pineapple chunks", ItemID.PINEAPPLE_CHUNKS);
 		pineappleChunks.setTooltip("You can make these by using a knife on a pineapple");
