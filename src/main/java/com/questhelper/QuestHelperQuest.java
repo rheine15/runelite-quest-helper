@@ -348,7 +348,7 @@ public enum QuestHelperQuest
 
 
 	// Generic
-	CHECK_ITEMS("Check all items", QuestVarbits.QUEST_THE_MAGE_ARENA_II, -1, Quest.Type.GENERIC,
+	CHECK_ITEMS("Needed Items Helper", QuestVarbits.CUTSCENE, -1, Quest.Type.GENERIC,
 		Quest.Difficulty.GENERIC),
 	MA2_LOCATOR("Mage Arena II Locator", QuestVarbits.QUEST_THE_MAGE_ARENA_II, -1, Quest.Type.GENERIC,
 		Quest.Difficulty.GENERIC),
