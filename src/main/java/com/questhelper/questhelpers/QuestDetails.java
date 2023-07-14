@@ -56,10 +56,12 @@ public interface QuestDetails
 		ACHIEVEMENT_DIARY,
 		GENERIC,
 		SKILL,
+		PLAYER_QUEST
 		;
 
 		@Override
-		public boolean test(QuestHelper quest) {
+		public boolean test(QuestHelper quest)
+		{
 			return quest.getQuest().getDifficulty() == this || this == ALL;
 		}
 	}
@@ -77,7 +79,8 @@ public interface QuestDetails
 		GENERIC,
 		SKILL,
 		SKILL_F2P,
-		SKILL_P2P
+		SKILL_P2P,
+		PLAYER_QUEST
 		;
 
 		@Override

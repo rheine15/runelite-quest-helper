@@ -45,18 +45,21 @@ import net.runelite.client.util.Text;
 @ConfigGroup("questhelper")
 public interface QuestHelperConfig extends Config
 {
+	String QUEST_HELPER_GROUP = "questhelper";
+	String QUEST_BACKGROUND_GROUP = "questhelpervars";
+
 	enum QuestOrdering implements Comparator<QuestHelper>
 	{
 		/**
 		 * Sort quests in alphabetical order
 		 */
 		A_TO_Z(QuestOrders.sortAToZ(), QuestFilter.QUEST, QuestFilter.MINIQUEST, QuestFilter.ACHIEVEMENT_DIARY,
-			QuestFilter.SKILL_HELPER, QuestFilter.GENERIC_HELPER),
+			QuestFilter.SKILL_HELPER, QuestFilter.GENERIC_HELPER, QuestFilter.PLAYER_MADE_QUESTS),
 		/**
 		 * Sort quests in reverse alphabetical order
 		 */
 		Z_TO_A(QuestOrders.sortZToA(), QuestFilter.QUEST, QuestFilter.MINIQUEST, QuestFilter.ACHIEVEMENT_DIARY,
-			QuestFilter.SKILL_HELPER, QuestFilter.GENERIC_HELPER),
+			QuestFilter.SKILL_HELPER, QuestFilter.GENERIC_HELPER, QuestFilter.PLAYER_MADE_QUESTS),
 		/**
 		 * Sort quests according to the Optimal Quest Guide (https://oldschool.runescape.wiki/w/Optimal_quest_guide)
 		 */
@@ -152,7 +155,9 @@ public interface QuestHelperConfig extends Config
 		/**
 		 * Show all members' skills
 		 */
-		SKILL_MEMBERS(QuestDetails.Type.SKILL_P2P);
+		SKILL_MEMBERS(QuestDetails.Type.SKILL_P2P),
+
+		PLAYER_MADE_QUESTS("Player-made quests", q -> q.getQuest().getQuestType() == QuestDetails.Type.PLAYER_QUEST);
 
 
 		private final Predicate<QuestHelper> predicate;
@@ -275,12 +280,22 @@ public interface QuestHelperConfig extends Config
 
 	@ConfigItem(
 		keyName = "showFan",
-		name = "Have fan appear on quest completion",
+		name = "Fan appears on quest completion",
 		description = "Have someone appear to celebrate whenever you complete a quest"
 	)
 	default boolean showFan()
 	{
 		return false;
+	}
+
+	@ConfigItem(
+		keyName = "showRuneliteObjects",
+		name = "Show player-made quest rewards",
+		description = "Choose whether changes from player-made quests are displayed"
+	)
+	default boolean showRuneliteObjects()
+	{
+		return true;
 	}
 
 	@ConfigSection(

@@ -51,10 +51,12 @@ import net.runelite.client.ui.overlay.components.LineComponent;
 
 public class ItemRequirement extends AbstractRequirement
 {
+	@Setter
 	@Getter
-	private final int id;
+	private int id;
 
-	private final String name;
+	@Setter
+	private String name;
 
 	@Setter
 	@Getter
@@ -82,7 +84,7 @@ public class ItemRequirement extends AbstractRequirement
 
 	@Setter
 	@Getter
-	private Requirement conditionToHide;
+	protected Requirement conditionToHide;
 
 	@Getter
 	@Setter
@@ -285,7 +287,7 @@ public class ItemRequirement extends AbstractRequirement
 	{
 		List<LineComponent> lines = new ArrayList<>();
 
-		if (conditionToHide != null && conditionToHide.check(client))
+		if (!shouldDisplayText(client))
 		{
 			return lines;
 		}
@@ -321,10 +323,27 @@ public class ItemRequirement extends AbstractRequirement
 		return getName();
 	}
 
+	public String getSidebarText()
+	{
+		StringBuilder text = new StringBuilder();
+
+		if (showQuantity())
+		{
+			text.append(getQuantity()).append(" x ");
+		}
+
+		text.append(getDisplayText());
+
+		String html1 = "<html><body style='padding: 0px; margin: 0px; width: 140px'>";
+		String html2 = "</body></html>";
+
+		return html1 + text + html2;
+	}
+
 	@Override
 	public boolean shouldDisplayText(Client client)
 	{
-		return !conditionToHide.check(client);
+		return conditionToHide == null || !conditionToHide.check(client);
 	}
 
 	@Override

@@ -84,6 +84,7 @@ public class DetailedQuestStep extends QuestStep
 	@Inject
 	private QuestBank questBank;
 
+	@Getter
 	protected WorldPoint worldPoint;
 
 	@Setter
@@ -387,7 +388,16 @@ public class DetailedQuestStep extends QuestStep
 		{
 			return;
 		}
+
 		renderInventory(graphics);
+		for (WidgetHighlights widgetHighlights : widgetsToHighlight)
+		{
+			widgetHighlights.highlightChoices(graphics, client, plugin);
+		}
+	}
+
+	public void makeDirectionOverlayHint(Graphics2D graphics, QuestHelperPlugin plugin)
+	{
 		if (!hideMinimapLines)
 		{
 			WorldLines.createMinimapLines(graphics, client, linePoints, getQuestHelper().getConfig().targetOverlayColor());

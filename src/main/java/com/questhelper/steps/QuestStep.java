@@ -27,6 +27,7 @@ package com.questhelper.steps;
 import com.google.inject.Binder;
 import com.google.inject.Inject;
 import com.google.inject.Module;
+import com.questhelper.VisibilityHelper;
 import static com.questhelper.overlays.QuestHelperOverlay.TITLED_CONTENT_COLOR;
 import com.questhelper.QuestHelperPlugin;
 import com.questhelper.QuestVarbits;
@@ -78,11 +79,13 @@ public abstract class QuestStep implements Module
 	ItemManager itemManager;
 
 	@Inject
-	SpriteManager spriteManager;
+	protected SpriteManager spriteManager;
 
 	@Inject
-	ModelOutlineRenderer modelOutlineRenderer;
+	protected ModelOutlineRenderer modelOutlineRenderer;
 
+	@Inject
+	VisibilityHelper visibilityHelper;
 
 	@Getter
 	protected List<String> text;
@@ -127,6 +130,9 @@ public abstract class QuestStep implements Module
 
 	@Getter
 	protected WidgetChoiceSteps widgetChoices = new WidgetChoiceSteps();
+
+	@Getter
+	protected List<WidgetHighlights> widgetsToHighlight = new ArrayList<>();
 
 	@Getter
 	private final List<QuestStep> substeps = new ArrayList<>();
@@ -354,6 +360,16 @@ public abstract class QuestStep implements Module
 		addWidgetLastLoadedCondition(widgetValue, widgetGroupID, widgetChildID, choiceValue, 219, 1);
 	}
 
+	public void addWidgetHighlight(int groupID, int childID)
+	{
+		widgetsToHighlight.add(new WidgetHighlights(groupID, childID));
+	}
+
+	public void addWidgetHighlightWithItemIdRequirement(int groupID, int childID, int itemID, boolean checkChildren)
+	{
+		widgetsToHighlight.add(new WidgetHighlights(groupID, childID, itemID, checkChildren));
+	}
+
 	public void makeOverlayHint(PanelComponent panelComponent, QuestHelperPlugin plugin, @NonNull List<String> additionalText, @NonNull List<Requirement> additionalRequirements)
 	{
 		addTitleToPanel(panelComponent);
@@ -414,6 +430,10 @@ public abstract class QuestStep implements Module
 	}
 
 	public void makeWidgetOverlayHint(Graphics2D graphics, QuestHelperPlugin plugin)
+	{
+	}
+
+	public void makeDirectionOverlayHint(Graphics2D graphics, QuestHelperPlugin plugin)
 	{
 	}
 

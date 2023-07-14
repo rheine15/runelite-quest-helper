@@ -29,6 +29,7 @@ import com.google.inject.CreationException;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.questhelper.ExternalQuestResources;
+import com.questhelper.HelperConfig;
 import com.questhelper.QuestBank;
 import com.questhelper.QuestHelperConfig;
 import com.questhelper.QuestHelperPlugin;
@@ -36,6 +37,7 @@ import com.questhelper.QuestHelperQuest;
 import com.questhelper.panel.PanelDetails;
 import com.questhelper.requirements.item.ItemRequirement;
 import com.questhelper.requirements.Requirement;
+import com.questhelper.steps.playermadesteps.extendedruneliteobjects.RuneliteObjectManager;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,7 +60,6 @@ import com.questhelper.steps.QuestStep;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
-import net.runelite.client.ui.overlay.outline.ModelOutlineRenderer;
 
 public abstract class QuestHelper implements Module, QuestDebugRenderer
 {
@@ -68,6 +69,9 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 	@Inject
 	@Getter
 	protected ConfigManager configManager;
+
+	@Inject
+	protected RuneliteObjectManager runeliteObjectManager;
 
 	@Inject
 	protected QuestBank questBank;
@@ -102,7 +106,15 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 
 	public abstract void startUp(QuestHelperConfig config);
 
-	public abstract void shutDown();
+	public void shutDown()
+	{
+		removeRuneliteObjects();
+	}
+
+	public void removeRuneliteObjects()
+	{
+		runeliteObjectManager.removeGroupAndSubgroups(toString());
+	}
 
 	public abstract boolean updateQuest();
 
@@ -168,7 +180,7 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 
 	public QuestState getState(Client client)
 	{
-		return quest.getState(client);
+		return quest.getState(client, configManager);
 	}
 
 	public boolean clientMeetsRequirements()
@@ -298,6 +310,11 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 	}
 
 	public List<ExternalQuestResources> getExternalResources()
+	{
+		return null;
+	}
+
+	public List<HelperConfig> getConfigs()
 	{
 		return null;
 	}

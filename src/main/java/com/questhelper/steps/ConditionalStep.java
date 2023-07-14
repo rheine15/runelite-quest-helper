@@ -26,7 +26,8 @@ package com.questhelper.steps;
 
 import com.google.inject.Inject;
 import com.questhelper.requirements.Requirement;
-import com.questhelper.requirements.RuneliteRequirement;
+import com.questhelper.requirements.npc.DialogRequirement;
+import com.questhelper.requirements.runelite.RuneliteRequirement;
 import com.questhelper.requirements.conditional.InitializableRequirement;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -51,7 +52,6 @@ import com.questhelper.questhelpers.QuestHelper;
 import com.questhelper.requirements.ChatMessageRequirement;
 import com.questhelper.requirements.conditional.NpcCondition;
 import net.runelite.client.ui.overlay.components.PanelComponent;
-import org.apache.commons.lang3.ArrayUtils;
 
 /* Conditions are checked in the order they were added */
 public class ConditionalStep extends QuestStep implements OwnerStep
@@ -64,6 +64,7 @@ public class ConditionalStep extends QuestStep implements OwnerStep
 	protected final LinkedHashMap<Requirement, QuestStep> steps;
 	protected final List<ChatMessageRequirement> chatConditions = new ArrayList<>();
 	protected final List<NpcCondition> npcConditions = new ArrayList<>();
+	protected final List<DialogRequirement> dialogConditions = new ArrayList<>();
 	protected final List<RuneliteRequirement> runeliteConditions = new ArrayList<>();
 
 	protected QuestStep currentStep;
@@ -102,6 +103,7 @@ public class ConditionalStep extends QuestStep implements OwnerStep
 	private void checkForConditions(Requirement requirement)
 	{
 		checkForChatConditions(requirement);
+		checkForDialogConditions(requirement);
 		checkForNpcConditions(requirement);
 		checkForRuneliteConditions(requirement);
 
@@ -129,6 +131,15 @@ public class ConditionalStep extends QuestStep implements OwnerStep
 			chatConditions.add((ChatMessageRequirement) condition);
 		}
 		condition.getConditions().forEach(this::checkForChatConditions);
+	}
+
+	public void checkForDialogConditions(Requirement requirement)
+	{
+		if (requirement instanceof DialogRequirement && !dialogConditions.contains(requirement))
+		{
+			DialogRequirement runeliteReq = (DialogRequirement) requirement;
+			dialogConditions.add(runeliteReq);
+		}
 	}
 
 	public void checkForNpcConditions(Requirement requirement)
@@ -213,6 +224,11 @@ public class ConditionalStep extends QuestStep implements OwnerStep
 		if (chatMessage.getType() == ChatMessageType.GAMEMESSAGE || chatMessage.getType() == ChatMessageType.ENGINE)
 		{
 			chatConditions.forEach(step -> step.validateCondition(client, chatMessage.getMessage()));
+		}
+
+		if (chatMessage.getType() == ChatMessageType.DIALOG)
+		{
+			dialogConditions.forEach(step -> step.validateCondition(chatMessage.getMessage()));
 		}
 	}
 
